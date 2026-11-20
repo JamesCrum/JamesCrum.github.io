@@ -186,6 +186,15 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
   max-height: 260px;
 }
 
+.ibs-cite { margin-top: 0.9rem; }
+
+.ibs-cite img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+}
+
 .trio.compass {
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
   gap: 0.8rem 1.1rem;
