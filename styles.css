@@ -185,14 +185,19 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
 }
 
 .trio.compass {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   max-width: 100%;
+  gap: 1.4rem;
 }
+
+.trio.compass figure { margin: 0; }
 
 .trio.compass img {
   width: 100%;
-  max-width: none;
-  max-height: 520px;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+  object-fit: contain;
   object-position: top;
 }
 
