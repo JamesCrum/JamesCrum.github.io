@@ -172,6 +172,13 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
   max-height: none;
 }
 
+.block img.eco-fit {
+  width: auto;
+  max-width: min(100%, 520px);
+  max-height: none;
+  height: auto;
+}
+
 .brains {
   display: grid;
   grid-template-columns: 1fr 1fr;
