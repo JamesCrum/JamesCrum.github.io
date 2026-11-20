@@ -202,8 +202,10 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
 }
 
 a.mark-link img {
-  max-width: 360px;
-  max-height: 88px;
+  width: 100%;
+  max-width: 720px;
+  max-height: none;
+  height: auto;
 }
 
 .pair, .trio {
