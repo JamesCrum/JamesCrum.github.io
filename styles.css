@@ -1,10 +1,10 @@
 :root {
   --ink: #1c1915;
   --muted: #5c564c;
-  --paper: #f7f3ea;
-  --card: #f3efe6;
-  --line: #d9d1c3;
-  --rust: #8a3b24;
+  --paper: #f6f1e6;
+  --card: #fffdf8;
+  --line: #d8d0c2;
+  --rust: #7a3420;
   --max: 1080px;
 }
 
@@ -16,14 +16,14 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: "Palatino Linotype", Palatino, Georgia, serif;
-  font-size: 1.05rem;
-  line-height: 1.55;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 19px;
+  line-height: 1.5;
 }
 
 a { color: var(--rust); }
 
-a:hover { color: var(--ink); }
+img { max-width: 100%; height: auto; }
 
 .skip {
   position: absolute;
@@ -31,158 +31,250 @@ a:hover { color: var(--ink); }
   top: -4rem;
   background: var(--ink);
   color: var(--paper);
-  padding: 0.4rem 0.7rem;
+  padding: 0.35rem 0.6rem;
 }
 
-.skip:focus { top: 0.5rem; }
+.skip:focus { top: 0.4rem; }
 
 .site-header {
-  position: sticky;
-  top: 0;
-  z-index: 2;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  align-items: center;
-  padding: 0.85rem 1.4rem;
-  background: rgba(247, 243, 234, 0.94);
+  align-items: baseline;
+  padding: 0.8rem 1.3rem;
   border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 20;
 }
 
-.mark {
-  color: var(--ink);
-  text-decoration: none;
-  font-weight: 700;
-  letter-spacing: 0.01em;
+.view { display: none; scroll-margin-top: 4.2rem; }
+#home { display: block; }
+#research:target,
+#lecturing:target,
+#lab:target,
+#elenca:target { display: block; }
+body:has(#research:target) #home,
+body:has(#lecturing:target) #home,
+body:has(#lab:target) #home,
+body:has(#elenca:target) #home,
+body:has(#research:target) #stage,
+body:has(#lecturing:target) #stage,
+body:has(#lab:target) #stage,
+body:has(#elenca:target) #stage { display: none; }
+
+nav a[aria-current="page"] {
+  color: var(--rust);
+  box-shadow: inset 0 -1px 0 var(--rust);
 }
 
-nav { display: flex; flex-wrap: wrap; gap: 0.9rem; }
+.mark { color: var(--ink); text-decoration: none; font-weight: 700; }
 
-nav a {
-  color: var(--ink);
-  text-decoration: none;
-  font-family: "Segoe UI", Calibri, sans-serif;
-  font-size: 0.92rem;
+nav { display: flex; flex-wrap: wrap; gap: 0.85rem; }
+
+nav a { color: var(--ink); text-decoration: none; }
+
+nav a:hover, .mark:hover { color: var(--rust); }
+
+.stage {
+  position: relative;
+  height: 210px;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 
-nav a:hover { color: var(--rust); }
-
-main { max-width: var(--max); margin: 0 auto; padding: 2.5rem 1.4rem 4rem; }
-
-.hero { max-width: 42rem; padding-bottom: 1rem; }
-
-.eyebrow, .kicker {
-  font-family: "Segoe UI", Calibri, sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 0.6rem;
-}
-
-h1 {
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  line-height: 0.95;
-  font-weight: 600;
-  margin: 0 0 0.8rem;
-  letter-spacing: -0.03em;
-}
-
-.lede { font-size: 1.25rem; margin: 0 0 0.8rem; }
-
-.dek { margin: 0 0 1rem; }
-
-.meta {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  color: var(--muted);
-  font-family: "Segoe UI", Calibri, sans-serif;
-  font-size: 0.95rem;
-}
-
-.section { margin-top: 3.5rem; }
-
-.section-head { max-width: 40rem; margin-bottom: 1.4rem; }
-
-h2 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  margin: 0 0 0.4rem;
-  letter-spacing: -0.02em;
-}
-
-.section-head p, .split p { margin-top: 0; }
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  padding: 0 0 1rem;
-}
-
-.scheme { display: block; width: 100%; height: auto; border-bottom: 1px solid var(--line); }
-
-.card .kicker, .card h3, .card p, .card a { margin-left: 1rem; margin-right: 1rem; }
-
-.card h3 { font-size: 1.25rem; line-height: 1.25; margin: 0.2rem 1rem 0.4rem; }
-
-.card p { margin: 0 1rem 0.7rem; }
-
-.papers { list-style: none; padding: 0; margin: 0; }
-
-.papers li {
-  padding: 0.9rem 0;
-  border-top: 1px solid var(--line);
-}
-
-.papers a { font-size: 1.12rem; }
-
-.papers span, .more {
+.stage canvas {
   display: block;
-  color: var(--muted);
-  font-family: "Segoe UI", Calibri, sans-serif;
-  font-size: 0.95rem;
-  margin-top: 0.2rem;
+  width: 100%;
+  height: 210px;
+  pointer-events: none;
 }
 
-.split {
+main { max-width: var(--max); margin: 0 auto; padding: 1.6rem 1.3rem 3.5rem; }
+
+.home-top {
   display: grid;
-  grid-template-columns: 1.5fr 0.8fr;
-  gap: 2rem;
+  grid-template-columns: 1fr 168px;
+  gap: 1.4rem;
   align-items: start;
 }
 
-.aside {
-  border-top: 1px solid var(--ink);
-  padding-top: 0.6rem;
+.portrait {
+  width: 168px;
+  height: auto;
+  border: 1px solid var(--line);
+  justify-self: end;
 }
 
-.contact {
+h1 {
+  font-size: 2.7rem;
+  line-height: 1;
+  font-weight: 600;
+  margin: 0 0 0.55rem;
+}
+
+.titles { margin: 0 0 0.9rem; font-size: 1.15rem; font-weight: 700; }
+
+.dek { margin: 0 0 1rem; max-width: 40rem; }
+
+.icon-row, .contact, .docs {
   list-style: none;
   padding: 0;
-  margin: 0.4rem 0 0;
-  display: grid;
+  margin: 0.3rem 0 0;
+}
+
+.icon-row { display: flex; flex-wrap: wrap; gap: 0.8rem 1.1rem; }
+
+.icon-row a, .docs a {
+  display: inline-flex;
+  align-items: center;
   gap: 0.35rem;
-  font-family: "Segoe UI", Calibri, sans-serif;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.icon-row a:hover, .docs a:hover { color: var(--rust); }
+
+.icon-row svg { width: 18px; height: 18px; flex: none; }
+
+.section { margin-top: 2.6rem; }
+
+h2 { font-size: 1.7rem; font-weight: 600; margin: 0 0 0.45rem; }
+
+h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
+
+.kicker {
+  margin: 0 0 0.25rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.block { margin: 1.6rem 0; }
+
+.block img, .frame {
+  display: block;
+  width: auto;
+  max-width: min(100%, 680px);
+  max-height: 380px;
+  object-fit: contain;
+  background: white;
+  border: 1px solid var(--line);
+}
+
+.block img.wide {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+}
+
+.brains {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  max-width: 680px;
+  margin: 0.6rem 0;
+}
+
+.brains img {
+  width: 100%;
+  max-width: none;
+  max-height: 260px;
+}
+
+.trio.compass {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 100%;
+}
+
+.trio.compass img {
+  width: 100%;
+  max-width: none;
+  max-height: 520px;
+  object-position: top;
+}
+
+a.mark-link img {
+  max-width: 360px;
+  max-height: 88px;
+}
+
+.pair, .trio {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.pair { grid-template-columns: 1fr 1fr; }
+
+.trio { grid-template-columns: repeat(3, 1fr); }
+
+figcaption {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-top: 0.35rem;
+}
+
+ul.plain { margin: 0.3rem 0 0; padding-left: 1.15rem; }
+
+.papers { list-style: none; padding: 0; }
+
+.papers li { border-top: 1px solid var(--line); padding: 0.75rem 0; }
+
+.papers span { display: block; color: var(--muted); font-size: 0.95rem; }
+
+.logos { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin: 0.8rem 0 1rem; }
+
+.logos img { background: white; border: 1px solid var(--line); }
+
+.psych { width: 120px; }
+
+.ics { width: min(100%, 420px); }
+
+.split {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 1.6rem;
+}
+
+.aside { border-top: 2px solid var(--ink); padding-top: 0.5rem; }
+
+.elenca-mark {
+  width: 112px;
+  height: auto;
+  display: block;
+  margin: 0.2rem 0 0.8rem;
+  padding: 10px;
+  border: 0;
+  background: #1c1915;
+  box-sizing: border-box;
+}
+
+.place-wrap { margin: 1.2rem 0 0; }
+
+.place-wrap img.place {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 40%;
+  background: white;
+  border: 1px solid var(--line);
 }
 
 footer {
   border-top: 1px solid var(--line);
-  padding: 1rem 1.4rem 2rem;
+  padding: 0.9rem 1.3rem 1.6rem;
   color: var(--muted);
-  font-family: "Segoe UI", Calibri, sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 footer p { max-width: var(--max); margin: 0 auto; }
 
-@media (max-width: 720px) {
-  .split { grid-template-columns: 1fr; }
-  .site-header { align-items: flex-start; flex-direction: column; }
+@media (max-width: 800px) {
+  .home-top, .pair, .trio, .split { grid-template-columns: 1fr; }
+  .portrait { justify-self: start; }
+  h1 { font-size: 2.2rem; }
 }
