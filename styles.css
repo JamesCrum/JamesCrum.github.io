@@ -260,7 +260,15 @@ ul.plain { margin: 0.3rem 0 0; padding-left: 1.15rem; }
   box-sizing: border-box;
 }
 
-.place-wrap { margin: 1.2rem 0 0; }
+.place-row {
+  display: grid;
+  grid-template-columns: 1.6fr 0.75fr;
+  gap: 1.4rem;
+  align-items: start;
+  margin-top: 1.2rem;
+}
+
+.place-wrap { margin: 0; }
 
 .place-wrap img.place {
   display: block;
@@ -283,7 +291,7 @@ footer {
 footer p { max-width: var(--max); margin: 0 auto; }
 
 @media (max-width: 800px) {
-  .home-top, .pair, .trio, .split { grid-template-columns: 1fr; }
+  .home-top, .pair, .trio, .split, .place-row { grid-template-columns: 1fr; }
   .portrait { justify-self: start; }
   h1 { font-size: 2.2rem; }
 }
