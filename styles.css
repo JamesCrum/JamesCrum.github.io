@@ -95,13 +95,13 @@ main { max-width: var(--max); margin: 0 auto; padding: 1.6rem 1.3rem 3.5rem; }
 
 .home-top {
   display: grid;
-  grid-template-columns: 1fr 168px;
+  grid-template-columns: 1fr 220px;
   gap: 1.4rem;
   align-items: start;
 }
 
 .portrait {
-  width: 168px;
+  width: 220px;
   height: auto;
   border: 1px solid var(--line);
   justify-self: end;
