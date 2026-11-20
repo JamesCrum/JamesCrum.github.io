@@ -187,20 +187,32 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
 }
 
 .trio.compass {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 0.8rem 1.1rem;
+  align-items: stretch;
   max-width: 100%;
-  gap: 1.4rem;
 }
 
 .trio.compass figure { margin: 0; }
 
+.trio.compass figure:nth-child(1) { grid-column: 1; grid-row: 1; }
+.trio.compass figure:nth-child(2) { grid-column: 1; grid-row: 2; }
+.trio.compass figure:nth-child(3) { grid-column: 2; grid-row: 1 / span 2; }
+
 .trio.compass img {
   width: 100%;
-  max-width: 820px;
-  max-height: none;
+  max-width: 100%;
   height: auto;
+  max-height: none;
   object-fit: contain;
-  object-position: top;
+  object-position: top center;
+}
+
+.trio.compass figure:nth-child(3) img {
+  height: 100%;
+  min-height: 640px;
+  object-fit: contain;
+  object-position: top center;
 }
 
 a.mark-link img {
@@ -307,7 +319,9 @@ footer {
 footer p { max-width: var(--max); margin: 0 auto; }
 
 @media (max-width: 800px) {
-  .home-top, .pair, .trio, .split, .place-row, .figure-pair { grid-template-columns: 1fr; }
+  .home-top, .pair, .trio, .split, .place-row, .figure-pair, .trio.compass { grid-template-columns: 1fr; }
+  .trio.compass figure:nth-child(3) { grid-column: auto; grid-row: auto; }
+  .trio.compass figure:nth-child(3) img { min-height: 0; height: auto; }
   .portrait { justify-self: start; }
   h1 { font-size: 2.2rem; }
 }
