@@ -286,6 +286,10 @@ ul.plain { margin: 0.3rem 0 0; padding-left: 1.15rem; }
   max-width: 100%;
   max-height: none;
   height: auto;
+  aspect-ratio: 907 / 696;
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
 }
 
 .place-row {
