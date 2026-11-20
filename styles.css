@@ -260,6 +260,22 @@ ul.plain { margin: 0.3rem 0 0; padding-left: 1.15rem; }
   box-sizing: border-box;
 }
 
+.figure-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.figure-pair .block { margin-top: 1rem; }
+
+.figure-pair img {
+  width: 100%;
+  max-width: 100%;
+  max-height: none;
+  height: auto;
+}
+
 .place-row {
   display: grid;
   grid-template-columns: 1.6fr 0.75fr;
@@ -291,7 +307,7 @@ footer {
 footer p { max-width: var(--max); margin: 0 auto; }
 
 @media (max-width: 800px) {
-  .home-top, .pair, .trio, .split, .place-row { grid-template-columns: 1fr; }
+  .home-top, .pair, .trio, .split, .place-row, .figure-pair { grid-template-columns: 1fr; }
   .portrait { justify-self: start; }
   h1 { font-size: 2.2rem; }
 }
