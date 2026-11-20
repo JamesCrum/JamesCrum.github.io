@@ -196,7 +196,7 @@ h3 { font-size: 1.25rem; margin: 0 0 0.35rem; }
 
 .trio.compass img {
   width: 100%;
-  max-width: 100%;
+  max-width: 820px;
   max-height: none;
   height: auto;
   object-fit: contain;
